@@ -45,6 +45,7 @@ export class IO {
   public async writeTable(path: string, table: string[][]): Promise<void> {
     const tableStr = table.reduce((acc, row) => acc + row.join(' ') + '\n', '');
 
+    console.log(tableStr);
     return await this.writeFile(path, tableStr);
   }
 }
