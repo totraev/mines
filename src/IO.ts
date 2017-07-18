@@ -43,7 +43,7 @@ export class IO {
    * @param table - table array
    */
   public async writeTable(path: string, table: string[][]): Promise<void> {
-    const tableStr = table.reduce((acc, row) => acc + row.join(' ') + '\n', '');
+    const tableStr = table.reduce((acc, row) => `${acc}${row.join(this.colDelimiter)}${this.rowDelimiter}`, '');
 
     console.log(tableStr);
     return await this.writeFile(path, tableStr);
